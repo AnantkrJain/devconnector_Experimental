@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import * as jwt_decode from "jwt-decode";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class UtilsService {
+  authSubject: Subject<boolean> = new Subject<boolean>();
   constructor() {}
 
   setUserDetails(tokenData): void {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../../services/data.service";
+import { UtilsService } from "../../services/utils.service";
 
 @Component({
   selector: "app-navbar",
@@ -7,7 +8,18 @@ import { DataService } from "../../services/data.service";
   styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private dataService: DataService) {}
+  flag: boolean = false;
+  constructor(private dataService: DataService, private utils: UtilsService) {
+    utils.authSubject.subscribe((data) => {
+      this.flag = data;
+      console.log(this.flag);
+    });
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.utils.authSubject.subscribe((data) => {
+      this.flag = data;
+      console.log(this.flag);
+    });
+  }
 }

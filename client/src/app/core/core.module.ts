@@ -23,11 +23,6 @@ import { JwtInterceptor } from "./interceptors/jwt-interceptor";
       useClass: ErrorInterceptor,
       multi: true,
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true,
-    },
   ],
   imports: [CommonModule, HttpClientModule, CoreRoutingModule],
   exports: [NavbarComponent, FooterComponent],
